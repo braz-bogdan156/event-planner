@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && rename build dist",
+    "build": "react-scripts build && node renameBuild.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -38,6 +38,8 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "fs-extra": "^11.3.0",
+    "mvdir": "^1.0.22",
     "rename-cli": "^6.2.1"
   }
 }
