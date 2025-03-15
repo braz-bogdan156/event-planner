@@ -4,30 +4,30 @@ import TaskLists from "./components/TaskLists";
 
 export default function App() {
   const [taskLists, setTaskLists] = useState([
-    // {
-    //   id: 1,
-    //   title: "Learn React",
-    //   posts: [
-    //     { id: 2, title: "Завдання 1", body: "Опис завдання", completed: false },
-    //     { id: 3, title: "Завдання 2", body: "Опис завдання", completed: false },
-    //   ],
-    // },
-    // {
-    //   id: 2,
-    //   title: "Learn JavaScript",
-    //   posts: [
-    //     { id: 3, title: "Завдання 1", body: "Опис завдання", completed: false },
-    //     { id: 4, title: "Завдання 2", body: "Опис завдання", completed: true },
-    //   ],
-    // },
-    // {
-    //   id: 3,
-    //   title: "Learn CSS",
-    //   posts: [
-    //     { id: 4, title: "Завдання 1", body: "Опис завдання", completed: true },
-    //     { id: 5, title: "Завдання 2", body: "Опис завдання", completed: false },
-    //   ],
-    // },
+    {
+      id: 1,
+      title: "Learn React",
+      posts: [
+        { id: 2, title: "Завдання 1", body: "Опис завдання", completed: false },
+        { id: 3, title: "Завдання 2", body: "Опис завдання", completed: false },
+      ],
+    },
+    {
+      id: 2,
+      title: "Learn JavaScript",
+      posts: [
+        { id: 3, title: "Завдання 1", body: "Опис завдання", completed: false },
+        { id: 4, title: "Завдання 2", body: "Опис завдання", completed: true },
+      ],
+    },
+    {
+      id: 3,
+      title: "Learn CSS",
+      posts: [
+        { id: 4, title: "Завдання 1", body: "Опис завдання", completed: true },
+        { id: 5, title: "Завдання 2", body: "Опис завдання", completed: false },
+      ],
+    },
 
   ]);
 
@@ -116,7 +116,7 @@ export default function App() {
       createPost={createPost}
       removePost={removePost}
       updatePost={updatePost}
-      toggleComplete={toggleComplete}
+      toggleComplete={ toggleComplete }
     />
   </div>
   );
