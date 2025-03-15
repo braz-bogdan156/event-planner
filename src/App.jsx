@@ -1,40 +1,123 @@
 import React, { useState } from "react";
 import "./components/styles/App.css";
-import PostList from "./components/PostList";
-import PostForm from "./components/PostForm";
+import TaskLists from "./components/TaskLists";
 
 export default function App() {
-  const [posts, setPosts] = useState([
-    { id: 1, title: "Javascript1", body: "Description", completed: false },
-    { id: 2, title: "Javascript2", body: "Description", completed: false },
-    { id: 3, title: "Javascript3", body: "Description", completed: false },
+  const [taskLists, setTaskLists] = useState([
+    // {
+    //   id: 1,
+    //   title: "Learn React",
+    //   posts: [
+    //     { id: 2, title: "Завдання 1", body: "Опис завдання", completed: false },
+    //     { id: 3, title: "Завдання 2", body: "Опис завдання", completed: false },
+    //   ],
+    // },
+    // {
+    //   id: 2,
+    //   title: "Learn JavaScript",
+    //   posts: [
+    //     { id: 3, title: "Завдання 1", body: "Опис завдання", completed: false },
+    //     { id: 4, title: "Завдання 2", body: "Опис завдання", completed: true },
+    //   ],
+    // },
+    // {
+    //   id: 3,
+    //   title: "Learn CSS",
+    //   posts: [
+    //     { id: 4, title: "Завдання 1", body: "Опис завдання", completed: true },
+    //     { id: 5, title: "Завдання 2", body: "Опис завдання", completed: false },
+    //   ],
+    // },
+
   ]);
 
-  const createPost = (newPost) => {
-    setPosts([...posts, { ...newPost, completed: false }]);
+  const createTaskList = (title) => {
+    const newTaskList = {
+      id: Date.now(),
+      title,
+      posts: [],
+    };
+    setTaskLists(structuredClone(taskLists).concat(newTaskList));
   };
 
-  const removePost = (post) => {
-    setPosts(posts.filter((p) => p.id !== post.id));
+  const removeTaskList = (id) => {
+    setTaskLists(taskLists.filter((taskList) => taskList.id !== id));
   };
 
-  const updatePost = (updatedPost) => {
-    setPosts(posts.map((p) => (p.id === updatedPost.id ? updatedPost : p)));
-  };
-
-  const toggleComplete = (id) => {
-    setPosts(
-      posts.map((post) =>
-        post.id === id ? { ...post, completed: !post.completed } : post
-      )
-    );
-  };
+    // Оновлення назви списку
+    const updateTaskListTitle = (id, newTitle) => {
+      setTaskLists(
+        taskLists.map((list) =>
+          list.id === id ? { ...list, title: newTitle } : list
+        )
+      );
+    };
+  
+    // Додаємо нове завдання в обраний список
+    const createPost = (taskListId, newPost) => {
+      setTaskLists(
+        taskLists.map((list) =>
+          list.id === taskListId
+            ? { ...list, posts: [...list.posts, { ...newPost, completed: false }] }
+            : list
+        )
+      );
+    };
+  
+    // Видаляємо завдання з обраного списку
+    const removePost = (taskListId, postId) => {
+      setTaskLists(
+        taskLists.map((list) =>
+          list.id === taskListId
+            ? { ...list, posts: list.posts.filter((post) => post.id !== postId) }
+            : list
+        )
+      );
+    };
+  
+    // Оновлення завдання
+    const updatePost = (taskListId, updatedPost) => {
+      setTaskLists(
+        taskLists.map((list) =>
+          list.id === taskListId
+            ? {
+                ...list,
+                posts: list.posts.map((post) =>
+                  post.id === updatedPost.id ? updatedPost : post
+                ),
+            }: list
+        )
+      );
+    };
+  
+    // Перемикання завершення завдання
+    const toggleComplete = (taskListId, id) => {
+      setTaskLists(
+        taskLists.map((list) =>
+          list.id === taskListId
+            ? {
+                ...list,
+                posts: list.posts.map((post) =>
+                  post.id === id ? { ...post, completed: !post.completed } : post
+                ),
+              }
+            : list
+        )
+      );
+    };
 
   return (
     <div className="App">
-      <PostForm create={createPost} />
-      <PostList remove={removePost} update={updatePost} toggleComplete={toggleComplete} posts={posts.filter(post => !post.completed)} title="Active Tasks" />
-      <PostList remove={removePost} update={updatePost} toggleComplete={toggleComplete} posts={posts.filter(post => post.completed)} title="Completed Tasks" />
-    </div>
+    <TaskLists
+      taskLists={taskLists}
+      createTaskList={createTaskList}
+      removeTaskList={removeTaskList}
+      updateTaskListTitle={updateTaskListTitle}
+      createPost={createPost}
+      removePost={removePost}
+      updatePost={updatePost}
+      toggleComplete={toggleComplete}
+    />
+  </div>
   );
 }

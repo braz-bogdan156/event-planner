@@ -3,7 +3,7 @@ import MyButton from "./UI/button/MyButton";
 import MyInput from "./UI/input/MyInput";
 import { Check, X } from "lucide-react";
 
-const PostItem = ({ post, number, remove, update, toggleComplete }) => {
+const PostItem = ({ post, number, removePost, update, toggleComplete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedPost, setEditedPost] = useState({ ...post });
 
@@ -53,7 +53,7 @@ const PostItem = ({ post, number, remove, update, toggleComplete }) => {
         ) : (
           <MyButton onClick={() => setIsEditing(true)}>Edit</MyButton>
         )}
-        <MyButton onClick={() => remove(post)}>Delete</MyButton>
+        <MyButton onClick={() => removePost(post.id)}>Delete</MyButton>
       </div>
     </div>
   );
