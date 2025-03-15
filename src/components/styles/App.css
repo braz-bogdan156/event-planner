@@ -10,11 +10,13 @@
 }
 
 .App {
-    width: 800px;
+    width: 90%;
+    max-width: 800px; 
 }
 
 .post {
     display: flex;
+    flex-wrap: wrap;
     padding: 15px;
     margin-top: 15px;
     border: 2px solid teal;
