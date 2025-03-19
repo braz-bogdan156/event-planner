@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./components/styles/App.css";
+import "./styles/App.css";
 import TaskLists from "./components/TaskLists/TaskLists";
 
 export default function App() {

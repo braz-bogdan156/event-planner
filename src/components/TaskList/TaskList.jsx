@@ -3,7 +3,7 @@ import PostList from "../PostList/PostList";
 import PostForm from "../PostForm/PostForm";
 import MyButton from "../UI/button/MyButton";
 import MyInput from "../UI/input/MyInput";
-import "../styles/App.css";
+import classes from "./TaskList.module.css";
 
 const TaskList = ({ taskList, removeTaskList, updateTaskListTitle, createPost, removePost, updatePost, toggleComplete }) => {
   const [editMode, setEditMode] = useState(false);
@@ -11,8 +11,8 @@ const TaskList = ({ taskList, removeTaskList, updateTaskListTitle, createPost, r
 
 
   return (
-    <div className="task-list">
-      <div className="task-list-header">
+    <div className= {classes.taskList}>
+      <div>
         {editMode ? (
           <MyInput
             type="text"

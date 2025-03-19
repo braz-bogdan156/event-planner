@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../styles/App.css";
 import TaskList from "../TaskList/TaskList";
 import MyButton from "../UI/button/MyButton";
 import MyInput from "../UI/input/MyInput";
+import classes from "./TaskLists.module.css";
 
 
 const TaskLists = ({
@@ -25,9 +25,9 @@ const TaskLists = ({
   };
 
   return (
-    <div className="taskLists__container">
-      <h1 className="title">Task Lists</h1>
-      <div className="tasklist__form">
+    <div>
+      <h1 className= {classes.title}>Task Lists</h1>
+      <div>
         <MyInput
           type="text"
           placeholder="New List Title"
