@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import MyButton from "./UI/button/MyButton";
-import MyInput from "./UI/input/MyInput";
+import MyButton from "../UI/button/MyButton";
+import MyInput from "../UI/input/MyInput";
 import { Check, X } from "lucide-react";
+import classes from "./PostItem.module.css";
 
 const PostItem = ({ post, number, removePost, update, toggleComplete }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -13,7 +14,7 @@ const PostItem = ({ post, number, removePost, update, toggleComplete }) => {
   };
 
   return (
-    <div className={`post ${post.completed ? "completed" : ""}`}>
+    <div className={classes.post}>
       <div className="post__content">
         {isEditing ? (
           <>

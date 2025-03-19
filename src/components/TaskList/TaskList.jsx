@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import PostList from "./PostList";
-import PostForm from "./PostForm";
-import MyButton from "./UI/button/MyButton";
-import MyInput from "./UI/input/MyInput";
-import "../components/styles/App.css";
+import PostList from "../PostList/PostList";
+import PostForm from "../PostForm/PostForm";
+import MyButton from "../UI/button/MyButton";
+import MyInput from "../UI/input/MyInput";
+import "../styles/App.css";
 
 const TaskList = ({ taskList, removeTaskList, updateTaskListTitle, createPost, removePost, updatePost, toggleComplete }) => {
   const [editMode, setEditMode] = useState(false);

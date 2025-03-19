@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../components/styles/App.css";
-import TaskList from "./TaskList";
-import MyButton from "./UI/button/MyButton";
-import MyInput from "./UI/input/MyInput";
+import "../styles/App.css";
+import TaskList from "../TaskList/TaskList";
+import MyButton from "../UI/button/MyButton";
+import MyInput from "../UI/input/MyInput";
 
 
 const TaskLists = ({
