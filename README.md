@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+**Опис :** Веб-додаток для управління завданнями (Event-planner)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Мета:** Розробити функціональний та адаптивний веб-додаток для управління завданнями, який надає користувачам можливість створювати, організовувати списки завдань, управляти завданнями та додавати співучасників із різними ролями.
 
-## Available Scripts
+1. **Реєстрація та авторизація:** 
 
-In the project directory, you can run:
+   - Проста форма для реєстрації користувача з полями: name, email, password.
 
-### `npm start`
+   - Форма для входу до системи для вже зареєстрованих користувачів.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   - Використання токенів для збереження стану авторизації.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Списки подій (Event Lists):**  
 
-### `npm test`
+   - Створення нових списків завдань із вказаною назвою.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   - Редагування назв списків.
 
-### `npm run build`
+   - Видалення непотрібних списків завдань.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Управління завданнями:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - Додавання нових завдань у списки із вказаною назвою та описом.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - Редагування існуючих завдань (оновлення назви та опису).
 
-### `npm run eject`
+  - Видалення завдань зі списків.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  - Позначення завдань як виконаних або невиконаних.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Технології та підходи:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  - Фреймворк:
 
-## Learn More
+    1. Використання React для розробки фронтенду.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - Адаптивність:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    1. Реалізація адаптивної та кросбраузерної верстки для підтримки мобільних, планшетів та десктопів.
 
-### Code Splitting
+    2. Використання CSS(модульний підхід - для кожного компоненту свої стилі) для оформлення.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - Дані:
 
-### Analyzing the Bundle Size
+    1. Збереження списків завдань локально за допомогою localStorage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    2. Інтеграція реального API для спільної роботи (за бажанням).
 
-### Making a Progressive Web App
+  - Стек:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    1. React (Function Components) з використанням Hooks (useState, useEffect, тощо).
 
-### Advanced Configuration
+    2. Маршрутизація за допомогою react-router-dom.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    3. Firebase для авторизації користувачів та збереження даних.
