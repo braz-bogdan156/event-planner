@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./styles/App.css";
 import TaskLists from "./components/TaskLists/TaskLists";
+import {BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom";
+import LoginForm from "./pages/LoginForm/LoginForm";
+import RegisterForm from "./pages/RegisterForm";
+import './services/firebase'
 
 export default function App() {
 // Отримуємо збережений список завдань (якщо є) або створюємо пустий
@@ -95,16 +99,28 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <TaskLists
-        taskLists={taskLists}
-        createTaskList={createTaskList}
-        removeTaskList={removeTaskList}
-        updateTaskListTitle={updateTaskListTitle}
-        createPost={createPost}
-        removePost={removePost}
-        updatePost={updatePost}
-        toggleComplete={toggleComplete}
-      />
+      <Router>
+        <Routes>
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/" element={<Navigate to="/register" />} />
+        <Route
+            path="/home"
+            element={
+              <TaskLists
+                taskLists={taskLists}
+                createTaskList={createTaskList}
+                removeTaskList={removeTaskList}
+                updateTaskListTitle={updateTaskListTitle}
+                createPost={createPost}
+                removePost={removePost}
+                updatePost={updatePost}
+                toggleComplete={toggleComplete}
+              />
+            }
+          />
+           </Routes>
+      </Router>
     </div>
   );
 }
