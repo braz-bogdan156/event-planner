@@ -3,7 +3,7 @@ import { auth } from "../services/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import MyButton from "../components/UI/button/MyButton";
 import MyInput from "../components/UI/input/MyInput";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterForm() {
   const [name, setName] = useState("");
@@ -22,6 +22,10 @@ export default function RegisterForm() {
     }
   };
 
+  const goToLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh" }}>
       <div style={{ width: "90%", maxWidth: "800px", padding: "20px", border: "1px solid teal", boxSizing: "border-box" }}>
@@ -31,8 +35,14 @@ export default function RegisterForm() {
           <MyInput type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           <MyInput type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           <MyButton type="submit" style={{ width: "50%", alignSelf: "center" }}>Register</MyButton>
-          <p style={{textAlign: "center"}}>Already have an account?</p>
-          <Link href="/login" style={{textAlign: "center", color: "teal"}}> Sign in</Link>
+          <p style={{ textAlign: "center" }}>Already have an account?</p>
+          <MyButton
+            type="button"
+            onClick={goToLogin}
+            style={{ width: "50%", alignSelf: "center"}}
+          >
+            Sign in
+          </MyButton>
         </form>
       </div>
     </div>
