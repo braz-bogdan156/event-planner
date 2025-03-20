@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./styles/App.css";
 import TaskLists from "./components/TaskLists/TaskLists";
-import {BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom";
+import {HashRouter as Router, Route, Routes, Navigate} from "react-router-dom";
 import LoginForm from "./pages/LoginForm/LoginForm";
 import RegisterForm from "./pages/RegisterForm";
 import './services/firebase'
