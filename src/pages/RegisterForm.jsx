@@ -3,7 +3,7 @@ import { auth } from "../services/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import MyButton from "../components/UI/button/MyButton";
 import MyInput from "../components/UI/input/MyInput";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function RegisterForm() {
   const [name, setName] = useState("");
@@ -32,7 +32,7 @@ export default function RegisterForm() {
           <MyInput type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           <MyButton type="submit" style={{ width: "50%", alignSelf: "center" }}>Register</MyButton>
           <p style={{textAlign: "center"}}>Already have an account?</p>
-          <a href="/login" style={{textAlign: "center", color: "teal"}}> Sign in</a>
+          <Link href="/login" style={{textAlign: "center", color: "teal"}}> Sign in</Link>
         </form>
       </div>
     </div>
