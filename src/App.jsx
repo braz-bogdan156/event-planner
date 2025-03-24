@@ -9,13 +9,13 @@ import './services/firebase'
 export default function App() {
 // Отримуємо збережений список завдань (якщо є) або створюємо пустий
 const [taskLists, setTaskLists] = useState(() => {
-  const savedTasks = localStorage.getItem("taskLists");
+  const savedTasks = sessionStorage.getItem("taskLists");
   return savedTasks ? JSON.parse(savedTasks) : [];
 });
 
-// Зберігаємо дані у `localStorage` при кожній зміні `taskLists`
+// Зберігаємо дані у `sessionStorage` при кожній зміні `taskLists`
 useEffect(() => {
-  localStorage.setItem("taskLists", JSON.stringify(taskLists));
+  sessionStorage.setItem("taskLists", JSON.stringify(taskLists));
 }, [taskLists]);
 
   const createTaskList = (title) => {
